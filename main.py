@@ -11,7 +11,7 @@ students={
     
 }
 
-# the main error that you were doing here was that you were storing the data coming from the user incorrectly into the dictornary and then returning data wasd also incorrect.
+# the main error that you were doing here was that you were storing the data coming from the user incorrectly into the dictionary and then returning data was also incorrect.
 
 class Student(BaseModel):
     name:str
@@ -78,6 +78,20 @@ def update_student(student_id:int, student:Student):
         students[student_id].year=student.year
     return students[student_id]
 
+@app.delete("/delete-student/{student_id}")
+def delete_student(student_id:int):
+    if student_id not in students:
+        return {"Error":"Student does not exist"}
+    
+    del students[student_id]
+    return {"Message":"Student deleted successfully"}
+
+        
+    
+    
+    
+    
+    
 
         
     
