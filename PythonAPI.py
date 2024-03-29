@@ -13,7 +13,7 @@ def get_posts():
 @app2.post("/createposts")
 def create_post(payLoad:dict=Body(...)):
     print(payLoad)
-    return {"new_post":f"Title{payLoad['Title']} Content:{payLoad['Content']}"}
+    return {"new_post":f"title: {payLoad['title']} content:{payLoad['content']}"}
     # return {"Message":"Successfully created post"} --->extracting data from the body of the payLoad
 # Is going to extract all the fields from the Body and store it in form of dictionary in the variable "payLoad"
 
